@@ -1,0 +1,18 @@
+<%= form_with model: todo, url:todo_path do |form| %>
+    <div>
+      <label class="form__label" for="todo">~ Today I need to ~</label>
+
+      <%= form.text_field :title , :class => "form__input" ,placeholder: "title" %>
+      <% todo.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+
+      <%= form.text_field :body , :class => "form__input" ,placeholder: "description" %>
+      <% todo.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+
+      <br>
+      <button type="submit" name="commit" class="button"><span>Submit</span></button>
+    </div>
+  <% end %>
